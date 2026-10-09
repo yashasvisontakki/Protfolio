@@ -1,0 +1,188 @@
+/* ==========================================================================
+   Yashasvi Sontakki - Creative Animations & Keyframes
+   ========================================================================== */
+
+/* Glowing Pulse Ring */
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(156, 194, 134, 0.7);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 8px rgba(156, 194, 134, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(156, 194, 134, 0);
+  }
+}
+
+/* Cursor Blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Continuous Orbit Rotations */
+@keyframes rotate-cw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-ccw {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Floating Elevation */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(1.5deg);
+  }
+}
+
+/* Gradient Shimmer on Titles and Highlights */
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.hero-name .highlight {
+  background-size: 200% auto;
+  animation: gradient-flow 6s ease infinite;
+}
+
+/* Laser Scan Line across ML Lab or Terminal */
+@keyframes laser-scan {
+  0% {
+    top: 0%;
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    top: 100%;
+    opacity: 0.2;
+  }
+}
+
+.laser-scanner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent-cyan), transparent);
+  box-shadow: 0 0 15px var(--accent-cyan);
+  pointer-events: none;
+  animation: laser-scan 4s linear infinite;
+  display: none;
+}
+.ml-lab-container:hover .laser-scanner {
+  display: block;
+}
+
+/* Equalizer Audio Waves (When Audio is Active) */
+@keyframes eq-bounce-1 {
+  0%, 100% { height: 4px; }
+  50% { height: 16px; }
+}
+@keyframes eq-bounce-2 {
+  0%, 100% { height: 14px; }
+  50% { height: 6px; }
+}
+@keyframes eq-bounce-3 {
+  0%, 100% { height: 8px; }
+  50% { height: 18px; }
+}
+
+.sound-waves {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 18px;
+}
+.wave-bar {
+  width: 2.5px;
+  background: var(--accent-cyan);
+  border-radius: 2px;
+}
+.sound-active .wave-bar:nth-child(1) { animation: eq-bounce-1 0.7s infinite; }
+.sound-active .wave-bar:nth-child(2) { animation: eq-bounce-2 0.5s infinite; }
+.sound-active .wave-bar:nth-child(3) { animation: eq-bounce-3 0.8s infinite; }
+
+/* Scroll Reveal States */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger Delay Classes */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* 3D Card Hover Glare */
+.tilt-card {
+  transition: transform 0.2s ease-out;
+  transform-style: preserve-3d;
+}
+
+/* Floating decorative tags */
+.float-tag-1 {
+  animation: float-slow 4s ease-in-out infinite;
+}
+.float-tag-2 {
+  animation: float-gentle 5s ease-in-out infinite 1s;
+}
+
+/* Button Ripple / Glow pulse */
+@keyframes neon-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 18px rgba(197, 222, 168, 0.35);
+  }
+  50% {
+    box-shadow: 0 8px 32px rgba(197, 222, 168, 0.65);
+  }
+}
+.btn-primary:not(:hover) {
+  animation: neon-pulse 3s infinite;
+}

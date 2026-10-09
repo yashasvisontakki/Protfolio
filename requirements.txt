@@ -1,0 +1,4 @@
+# Optional requirements for Flask-based deployment
+# Note: The included server.py requires ZERO external dependencies and runs with built-in Python 3.8+!
+flask>=3.0.0
+gunicorn>=21.0.0
